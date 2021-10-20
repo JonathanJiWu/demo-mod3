@@ -33,8 +33,8 @@ public class StudentController {
         return studentRepo.findAll();
     }
     @GetMapping("/students/{id}")
-    public ResponseEntity<StudentModel> getStudentById(int id){
-        StudentModel s1 = StudentRepo.findById(id).orElseThrow(()->new ResourceNotFoundException());
+    public ResponseEntity<StudentModel> getStudentById(String id){
+        StudentModel s1 = StudentRepo.findByName(id).orElseThrow(()->new ResourceNotFoundException());
 
         return ResponseEntity.ok(s1);
     }
